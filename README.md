@@ -1,6 +1,6 @@
 # Tswalano - Portfolio Showcase
 
-<img src="https://avatars3.githubusercontent.com/u/17822715?s=460&v=4?raw=true" alt="logo" height="30%" width="30%" />
+<img src="https://avatars3.githubusercontent.com/u/17822715?s=460&v=4?raw=true" alt="logo" height="20%" width="20%" />
 
 Tswalano is an app which will demonstrate some of my work I do in a production site for everyone to see. Goal is to create an online presence to show the skills i have and what I can build. Ideally the apps that will be deployed will be built in React, JavaScript, MySQL, Java and PHP (minor).
 
