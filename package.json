@@ -1,5 +1,5 @@
 {
-  "name": "moganegb",
+  "name": "tswalano",
   "version": "1.0.0",
   "description": "Site to showcase my projects",
   "main": "app.js",
@@ -13,8 +13,8 @@
     "url": "git+https://github.com/Tswalano/portfolio-app.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Mogane, Glen Bond",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Tswalano/portfolio-app/issues"
   },
