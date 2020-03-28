@@ -1,25 +1,16 @@
 import React from "react";
-import { Header } from "./js/components/Header";
-import { Balance } from "./js/components/Balance";
-import { IncomeExpenses } from "./js/components/IncomeExpenses";
-import { TransactionList } from "./js/components/TransactionList";
-import { AddTransaction } from "./js/components/AddTransaction";
-
-import { GlobalProvider } from "./js/context/GlobalState";
-
-// import "./App.css";
+import { CssBaseline } from "@material-ui/core";
+import theme from "./js/Components/Theme/theme";
+import { ThemeProvider } from "@material-ui/core/styles";
+import RouterComponent from "./js/Components/RouterComponent";
+import NavbarComp from "./js/Components/NavbarComp";
 
 function App() {
   return (
-    <GlobalProvider>
-      <Header />
-      <div className="container">
-        <Balance />
-        <IncomeExpenses />
-        <TransactionList />
-        <AddTransaction />
-      </div>
-    </GlobalProvider>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <RouterComponent />
+    </ThemeProvider>
   );
 }
 
