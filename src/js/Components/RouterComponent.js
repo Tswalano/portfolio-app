@@ -1,5 +1,5 @@
 import React from "react";
-import NavbarComp from "./NavbarComp";
+import NavbarComp from "./NavbarComponent";
 import HomeComponent from "./HomeComponent";
 import LoginComponent from "./LoginComponent";
 import Container from "@material-ui/core/Container";
