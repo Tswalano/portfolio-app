@@ -13,15 +13,6 @@ function NavbarComp() {
       <Container maxWidth="md">
         <Toolbar>
           <Typography variant="h6">Tswalano</Typography>
-          <MenuItem component={Link} to="/">
-            Login
-          </MenuItem>
-          <MenuItem component={Link} to="/home">
-            Home
-          </MenuItem>
-          <MenuItem component={Link} to="/users">
-            Users
-          </MenuItem>
           <MenuItem component={Link} to="/about">
             About
           </MenuItem>

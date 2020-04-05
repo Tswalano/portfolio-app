@@ -1,57 +1,63 @@
-// Them Switch 
-// DOM Elements
-
-const darkButton = document.getElementById('dark');
-const lightButton = document.getElementById('light');
-const solarButton = document.getElementById('solar');
-const body = document.body;
+$(document).ready(function () {
 
 
-// Apply the cached theme on reload
+    let $btns = $('.project-area .button-group button');
 
-const theme = localStorage.getItem('theme');
-const isSolar = localStorage.getItem('isSolar');
 
-if (theme) {
-  body.classList.add(theme);
-  isSolar && body.classList.add('solar');
-}
+    $btns.click(function (e) {
 
-// Button Event Handlers
+        $('.project-area .button-group button').removeClass('active');
+        e.target.classList.add('active');
 
-darkButton.onclick = () => {
-  body.classList.replace('light', 'dark');
-  localStorage.setItem('theme', 'dark');
-};
+        let selector = $(e.target).attr('data-filter');
+        $('.project-area .grid').isotope({
+            filter: selector
+        });
 
-lightButton.onclick = () => {
-  body.classList.replace('dark', 'light');
+        return false;
+    })
 
-  localStorage.setItem('theme', 'light');
-};
+    $('.project-area .button-group #btn1').trigger('click');
 
-solarButton.onclick = () => {
+    $('.project-area .grid .test-popup-link').magnificPopup({
+        type: 'image',
+        gallery: { enabled: true }
+    });
 
-  if (body.classList.contains('solar')) {
-    
-    body.classList.remove('solar');
-    solarButton.style.cssText = `
-      --bg-solar: var(--yellow);
-    `
 
-    solarButton.innerText = 'solarize';
+    // Owl-carousel
 
-    localStorage.removeItem('isSolar');
+    $('.site-main .about-area .owl-carousel').owlCarousel({
+        loop: true,
+        autoplay: true,
+        dots: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            560: {
+                items: 2
+            }
+        }
+    })
 
-  } else {
+    // sticky navigation menu
 
-    solarButton.style.cssText = `
-      --bg-solar: white;
-    `
+    let nav_offset_top = $('.header_area').height() + 50;
 
-    body.classList.add('solar');
-    solarButton.innerText = 'normalize';
+    function navbarFixed() {
+        if ($('.header_area').length) {
+            $(window).scroll(function () {
+                let scroll = $(window).scrollTop();
+                if (scroll >= nav_offset_top) {
+                    $('.header_area .main-menu').addClass('navbar_fixed');
+                } else {
+                    $('.header_area .main-menu').removeClass('navbar_fixed');
+                }
+            })
+        }
+    }
 
-    localStorage.setItem('isSolar', true);
-  }
-};
+    navbarFixed();
+
+});

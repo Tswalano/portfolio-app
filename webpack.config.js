@@ -3,7 +3,8 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    port: 9000
   },
   module: {
     rules: [

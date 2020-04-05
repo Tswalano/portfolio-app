@@ -9,32 +9,32 @@ import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     width: "max-content",
-    padding: "8px"
+    padding: "8px",
   },
   details: {
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
   },
   content: {
-    flex: "1 0 auto"
+    flex: "1 0 auto",
   },
   cover: {
-    width: 151
+    width: 151,
   },
   controls: {
     display: "flex",
     alignItems: "center",
     paddingLeft: theme.spacing(1),
-    paddingBottom: theme.spacing(1)
+    paddingBottom: theme.spacing(1),
   },
   playIcon: {
     height: 38,
-    width: 38
-  }
+    width: 38,
+  },
 }));
 
 export default function HomeComponent() {
@@ -42,41 +42,32 @@ export default function HomeComponent() {
   const theme = useTheme();
 
   return (
-    <Card className={classes.root}>
-      <div className={classes.details}>
-        <CardContent className={classes.content}>
-          <Typography component="h5" variant="h5">
-            Live From Space
-          </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
-            Mac Miller
-          </Typography>
-        </CardContent>
-        <div className={classes.controls}>
-          <IconButton aria-label="previous">
-            {theme.direction === "rtl" ? (
-              <SkipNextIcon />
-            ) : (
-              <SkipPreviousIcon />
-            )}
-          </IconButton>
-          <IconButton aria-label="play/pause">
-            <PlayArrowIcon className={classes.playIcon} />
-          </IconButton>
-          <IconButton aria-label="next">
-            {theme.direction === "rtl" ? (
-              <SkipPreviousIcon />
-            ) : (
-              <SkipNextIcon />
-            )}
-          </IconButton>
-        </div>
-      </div>
-      <CardMedia
-        className={classes.cover}
-        image="./assets/img/icon.png"
-        title="Live from space album cover"
-      />
-    </Card>
+    <>
+      <main className="site-main">
+        <section className="site-banner">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-6 col-md-12 site-title">
+                <h3 className="title-text">Hey, I am Glen</h3>
+                <h4 className="title-text text-uppercase">Junior Developer</h4>
+                <div class="paragraph py-4 w-75">
+                  <p class="para">
+                    I am currently building this site, Please come back again
+                    soon
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-6 col-md-12 banner-image">
+                <img
+                  src="./../../assets/img/banner/banner-image.png"
+                  alt="banner-img"
+                  className="img-fluid"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
   );
 }

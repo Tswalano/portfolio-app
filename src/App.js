@@ -5,7 +5,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import RouterComponent from "./js/Components/RouterComponent";
 import NavbarComp from "./js/Components/NavbarComponent";
 
-function App() {
+export default () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -14,4 +14,4 @@ function App() {
   );
 }
 
-export default App;
+// export default App;

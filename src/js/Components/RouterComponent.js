@@ -1,44 +1,25 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import NavbarComp from "./NavbarComponent";
-import HomeComponent from "./HomeComponent";
-import LoginComponent from "./LoginComponent";
 import Container from "@material-ui/core/Container";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { UserContext } from "../Context/UserContext";
+import HomeComponent from "./HomeComponent";
+import Playgournd from "./Playgournd";
 
 function RouterComponent() {
+  const [user, setUser] = useState(null);
+  const value = useMemo(() => ({ user, setUser }), [user, setUser]);
+
   return (
     <Router>
-      <NavbarComp />
-      <Container maxWidth="md" style={{ marginTop: "30px" }}>
-        <Switch>
-          <Route path="/" exact>
-            <LoginComponent />
-          </Route>
-          <Route path="/home">
-            <HomeComponent />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-        </Switch>
+      {/* <NavbarComp /> */}
+      <Container maxWidth="md" style={{}}>
+        <Route path="/" exact component={HomeComponent} />
       </Container>
+      <UserContext.Provider value={value}>
+        <Route path="/about" component={Playgournd} />
+      </UserContext.Provider>
     </Router>
   );
 }
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
-
 export default RouterComponent;

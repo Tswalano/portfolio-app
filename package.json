@@ -4,8 +4,9 @@
   "description": "Site to showcase my projects",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open --mode development",
+    "client": "webpack-dev-server --open --mode development",
+    "server": "cd Server && nodemon app",
+    "dev": "concurrently \"npm run client\" \"npm run server\"",
     "build": "webpack --mode production"
   },
   "repository": {
@@ -33,10 +34,17 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/runtime": "^7.9.2",
     "@blueprintjs/core": "^3.24.0",
     "@material-ui/core": "^4.9.7",
     "@material-ui/icons": "^4.9.1",
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
+    "concurrently": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.1",
