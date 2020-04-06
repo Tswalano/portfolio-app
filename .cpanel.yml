@@ -1,4 +1,7 @@
+---
+task:
+  - npm run build
 deployment:
   tasks:
     - export DEPLOYPATH=/home/moganegb/public_html/test
-    - /bin/cp * $DEPLOYPATH
+    - /bin/cp -R dist/* $DEPLOYPATH
