@@ -12,7 +12,6 @@ function RouterComponent() {
 
   return (
     <Router>
-      {/* <NavbarComp /> */}
       <Container maxWidth="md" style={{}}>
         <Route path="/" exact component={HomeComponent} />
       </Container>
