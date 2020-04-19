@@ -4,9 +4,7 @@
   "description": "Site to showcase my projects",
   "main": "app.js",
   "scripts": {
-    "client": "webpack-dev-server --open --mode development",
-    "server": "cd Server && nodemon app",
-    "dev": "concurrently \"npm run client\" \"npm run server\"",
+    "dev": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production"
   },
   "repository": {
@@ -24,11 +22,17 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
+    "autoprefixer": "^9.7.6",
     "babel-loader": "^8.1.0",
     "copy-webpack-plugin": "^5.1.1",
-    "css-loader": "^3.4.2",
+    "css-loader": "^3.5.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-cli": "^7.1.0",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^1.1.4",
+    "tailwindcss": "^1.2.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
@@ -39,6 +43,7 @@
     "@blueprintjs/core": "^3.24.0",
     "@material-ui/core": "^4.9.9",
     "@material-ui/icons": "^4.9.1",
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
     "concurrently": "^5.1.0",

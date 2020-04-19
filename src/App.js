@@ -1,17 +1,16 @@
 import React from "react";
-import { CssBaseline } from "@material-ui/core";
-import theme from "./js/Components/Theme/theme";
-import { ThemeProvider } from "@material-ui/core/styles";
-import RouterComponent from "./js/Components/RouterComponent";
-import NavbarComp from "./js/Components/NavbarComponent";
+import RouterComponent from "./Components/RouterComponent";
+import Alert from "./Components/Alert";
+import FooterComponent from "./Components/FooterComponent";
+import NavComponent from "./Components/NavComponent";
 
 export default () => {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <div className="min-h-screen bg-gray-800">
+      <NavComponent />
+      <Alert />
       <RouterComponent />
-    </ThemeProvider>
+      <FooterComponent />
+    </div>
   );
-}
-
-// export default App;
+};
