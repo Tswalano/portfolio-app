@@ -4,11 +4,6 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
-  output: {
-    path: path.join(__dirname, "/dist"),
-    filename: "main.js",
-  },
-
   devServer: {
     historyApiFallback: true,
     port: 9000,
@@ -45,6 +40,9 @@ module.exports = {
       template: "./src/index.html",
       filename: "./index.html",
     }),
+    // Copy Assests files
     new CopyPlugin([{ from: "./src/assets", to: "assets" }]),
+    // Get back-end server
+    new CopyPlugin([{ from: "./Server", to: "assets" }]),
   ],
 };
