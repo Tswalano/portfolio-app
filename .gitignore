@@ -1,4 +1,4 @@
 node_modules
 # ignore db configuration
-Server/Config/confi.php
+Server/Config/config.php
 .env
