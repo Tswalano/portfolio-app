@@ -1,6 +1,7 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   entry: "./src/index.js",
@@ -32,6 +33,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv({
+      path: "./.env", // Path to .env file (this is the default)
+      safe: true, // load .env.example (defaults to "false" which does not use dotenv-safe)
+    }),
     new MiniCssExtractPlugin({
       filename: "styles.css",
       chunkFilename: "styles.css",
@@ -43,6 +48,6 @@ module.exports = {
     // Copy Assests files
     new CopyPlugin([{ from: "./src/assets", to: "assets" }]),
     // Get back-end server
-    new CopyPlugin([{ from: "./Server", to: "assets" }]),
+    new CopyPlugin([{ from: "./Server", to: "server" }]),
   ],
 };

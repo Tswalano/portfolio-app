@@ -1,43 +1,38 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import env from "../config";
 
 export default () => {
   const [user, setUser] = useState([]);
 
   // Get user
   useEffect(() => {
-    // const response = fetch("http://localhost:3000/Server/index.php?id=1");
-    // // console.log(response);
-    // response
-    //   .then((res) => {
-    //     return res.json();
-    //   })
-    //   .then((u) => {
-    //     const { user } = u;
-    //     setUser(user);
-    //     console.log(user);
-    //   })
-    //   .catch((err) => {
-    //     console.error("Error", err);
-    //   });
     axios
-      .get("http://localhost:3000/Server/index.php")
+      .get(env.url + "/index.php")
       .then(function (response) {
         const { data } = response;
-        setUser(data);
-        console.log(response);
+        if (data && data.success) {
+          setUser(data.user ? data.user : {});
+        } else {
+        }
       })
       .catch(function (error) {
         console.error(error);
       });
   }, []);
-  //  flex-col md:mx-auto sm:max-w-md md:justify-between
+
+  setTimeout(() => {
+    user.map((e) => {
+      console.log(e);
+    });
+  }, 5000);
+
   return (
-    <>
+    <div className="px-16 py-2">
       <h1 className="text-center tracking-widest font-normal text-2xl p-4 text-white font-semibold">
         Join The Team
       </h1>
-      <div className="p-4 grid sm:grid-cols-1 lg:grid-cols-3">
+      <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {user.map((u, key) => (
           <div
             className="bg-gray-300 m-2 shadow-lg rounded-lg overflow-hidden"
@@ -68,6 +63,6 @@ export default () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };

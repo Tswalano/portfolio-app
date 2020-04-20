@@ -1,8 +1,6 @@
 <?php
 include_once("./Config/config.php");
 
-$id = isset($_GET['id']) ? $_GET['id'] : "";
-
 $sql = "SELECT * FROM users";
 if ($result = $conn->query($sql)) {
     //Set the Content-Type header to application/json.
@@ -12,10 +10,10 @@ if ($result = $conn->query($sql)) {
         while ($row = $result->fetch_assoc()) {
             $rows[] = $row;
         }
-        $user = array("user" => $rows);
+        $user = array("success" => true, "user" => $rows);
         echo (json_encode($user));
     } else {
-        $error = array("success" => false, "message" => "User $id is not in the system", "status" => 403);
+        $error = array("success" => false, "message" => "User is not in the system", "status" => 403);
         echo (json_encode($error));
     }
 } else {

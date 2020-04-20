@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
+import env from "./../config";
 
-// w-full max-w-sm
 export default () => {
   const [user, setUser] = useState();
   const [response, setResponse] = useState(null);
 
   function addUser() {
     axios
-      .post("http://localhost:3000/Server/add.php", JSON.stringify(user))
+      .post(env.url + "/add.php", JSON.stringify(user))
       .then(function (response) {
         const { data } = response;
         setResponse(data);
