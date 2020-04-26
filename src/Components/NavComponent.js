@@ -1,169 +1,257 @@
 import React from "react";
 import { Link, HashRouter as Router } from "react-router-dom";
+import Alert from "./Alert";
 
 function NavComponent() {
   return (
-    <Router>
-      <nav className="flex items-center justify-between flex-wrap bg-blue-900 px-20 py-2">
-        <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <span className="font-semibold text-xl tracking-tight">
-            Freelance Inc.
-          </span>
+    <>
+      <Router>
+        <div>
+          <nav className="bg-gray-800">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex items-center justify-between h-16">
+                <div className="flex items-center">
+                  <div className="flex-shrink-0">
+                    <img
+                      className="h-8"
+                      src="./../assets/img/t-logo2.png"
+                      alt="Workflow logo"
+                    />
+                  </div>
+                  <div className="hidden md:block">
+                    <div className="ml-10 flex items-baseline">
+                      <a
+                        href="#"
+                        className="px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700"
+                      >
+                        Dashboard
+                      </a>
+                      <a
+                        href="#"
+                        className="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                      >
+                        Team
+                      </a>
+                      <Link
+                        to="/test/projects"
+                        className="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                      >
+                        Projects
+                      </Link>
+                      <a
+                        href="#"
+                        className="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                      >
+                        Calendar
+                      </a>
+                      <a
+                        href="#"
+                        className="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                      >
+                        Reports
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="hidden md:block">
+                  <div className="ml-4 flex items-center md:ml-6">
+                    <button
+                      className="p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-white focus:outline-none focus:text-white focus:bg-gray-700"
+                      aria-label="Notifications"
+                    >
+                      <svg
+                        className="h-6 w-6"
+                        stroke="currentColor"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                        />
+                      </svg>
+                    </button>
+
+                    {/* <!-- Profile dropdown --> */}
+                    <div className="ml-3 relative">
+                      <div>
+                        <button
+                          className="max-w-xs flex items-center text-sm rounded-full text-white focus:outline-none focus:shadow-solid"
+                          id="user-menu"
+                          aria-label="User menu"
+                          aria-haspopup="true"
+                        >
+                          <img
+                            className="h-8 w-8 rounded-full"
+                            src="https://avatars3.githubusercontent.com/u/17822715?s=400&u=e70fd41658f6765598cb9c2df2c9f0b66bc489bf&v=4"
+                            alt=""
+                          />
+                        </button>
+                      </div>
+                      {/* <!--
+                Profile dropdown panel, show/hide based on dropdown state.
+
+                Entering: "transition ease-out duration-100"
+                  From: "transform opacity-0 scale-95"
+                  To: "transform opacity-100 scale-100"
+                Leaving: "transition ease-in duration-75"
+                  From: "transform opacity-100 scale-100"
+                  To: "transform opacity-0 scale-95"
+              --> */}
+                      <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg hidden">
+                        <div
+                          className="py-1 rounded-md bg-white shadow-xs"
+                          role="menu"
+                          aria-orientation="vertical"
+                          aria-labelledby="user-menu"
+                        >
+                          <a
+                            href="#"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            role="menuitem"
+                          >
+                            Your Profile
+                          </a>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            role="menuitem"
+                          >
+                            Settings
+                          </a>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            role="menuitem"
+                          >
+                            Sign out
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="-mr-2 flex md:hidden">
+                  {/* <!-- Mobile menu button --> */}
+                  <button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white">
+                    {/* <!-- Menu open: "hidden", Menu closed: "block" --> */}
+                    <svg
+                      className="block h-6 w-6"
+                      stroke="currentColor"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M4 6h16M4 12h16M4 18h16"
+                      />
+                    </svg>
+                    {/* <!-- Menu open: "block", Menu closed: "hidden" --> */}
+                    <svg
+                      className="hidden h-6 w-6"
+                      stroke="currentColor"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* <!--
+      Mobile menu, toggle classes based on menu state.
+
+      Open: "block", closed: "hidden"
+    --> */}
+            <div className="hidden md:hidden">
+              <div className="px-2 pt-2 pb-3 sm:px-3">
+                <a
+                  href="#"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700"
+                >
+                  Dashboard
+                </a>
+                <a
+                  href="#"
+                  className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >
+                  Team
+                </a>
+                <a
+                  href="#"
+                  className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >
+                  Projects
+                </a>
+                <a
+                  href="#"
+                  className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >
+                  Calendar
+                </a>
+                <a
+                  href="#"
+                  className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >
+                  Reports
+                </a>
+              </div>
+              <div className="pt-4 pb-3 border-t border-gray-700">
+                <div className="flex items-center px-5">
+                  <div className="flex-shrink-0">
+                    <img
+                      className="h-10 w-10 rounded-full"
+                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      alt=""
+                    />
+                  </div>
+                  <div className="ml-3">
+                    <div className="text-base font-medium leading-none text-white">
+                      Tom Cook
+                    </div>
+                    <div className="mt-1 text-sm font-medium leading-none text-gray-400">
+                      tom@example.com
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-3 px-2">
+                  <a
+                    href="#"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                  >
+                    Your Profile
+                  </a>
+                  <a
+                    href="#"
+                    className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                  >
+                    Settings
+                  </a>
+                  <a
+                    href="#"
+                    className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                  >
+                    Sign out
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
         </div>
-        <div className="block lg:hidden">
-          <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-            <svg
-              className="fill-current h-3 w-3"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-            </svg>
-          </button>
-        </div>
-        <div className="w-full hidden flex-grow lg:flex lg:items-center lg:w-auto">
-          <div className="text-sm lg:flex-grow">
-            <Link
-              to="#"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
-            >
-              Docs
-            </Link>
-            <Link
-              to="#"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
-            >
-              Examples
-            </Link>
-            <Link
-              to="#"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
-            >
-              Blog
-            </Link>
-          </div>
-          <div>
-            <Link
-              to="/add"
-              className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
-            >
-              Add Card
-            </Link>
-          </div>
-        </div>
-      </nav>
-    </Router>
+      </Router>
+    </>
   );
 }
 
 export default NavComponent;
-
-{
-  /* <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
-  <div className="flex items-center flex-shrink-0 text-white mr-6">
-    <span className="font-semibold text-xl tracking-tight">Tailwind CSS</span>
-  </div>
-  <div className="block lg:hidden">
-    <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-      <svg
-        className="fill-current h-3 w-3"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>Menu</title>
-        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-      </svg>
-    </button>
-  </div>
-  <div className="w-full hidden flex-grow lg:flex lg:items-center lg:w-auto">
-    <div className="text-sm lg:flex-grow">
-      <a
-        href="#responsive-header"
-        className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
-      >
-        Docs
-      </a>
-      <a
-        href="#responsive-header"
-        className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
-      >
-        Examples
-      </a>
-      <a
-        href="#responsive-header"
-        className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
-      >
-        Blog
-      </a>
-    </div>
-    <div>
-      <a
-        href="#"
-        className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
-      >
-        Download
-      </a>
-    </div>
-  </div>
-</nav>; */
-}
-
-{
-  /* <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
-  <div className="flex items-center flex-shrink-0 text-white mr-6">
-    <svg
-      className="fill-current h-8 w-8 mr-2"
-      width="54"
-      height="54"
-      viewBox="0 0 54 54"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"></path>
-    </svg>
-    <span className="font-semibold text-xl tracking-tight">Tailwind CSS</span>
-  </div>
-  <div className="block lg:hidden">
-    <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-      <svg
-        className="fill-current h-3 w-3"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>Menu</title>
-        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-      </svg>
-    </button>
-  </div>
-  <div className="w-full hidden flex-grow lg:flex lg:items-center lg:w-auto">
-    <div className="text-sm lg:flex-grow">
-      <a
-        href="#responsive-header"
-        className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
-      >
-        Docs
-      </a>
-      <a
-        href="#responsive-header"
-        className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
-      >
-        Examples
-      </a>
-      <a
-        href="#responsive-header"
-        className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
-      >
-        Blog
-      </a>
-    </div>
-    <div>
-      <a
-        href="#"
-        className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
-      >
-        Download
-      </a>
-    </div>
-  </div>
-</nav>; */
-}

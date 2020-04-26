@@ -3,66 +3,107 @@ import axios from "axios";
 import env from "../config";
 
 export default () => {
-  const [user, setUser] = useState([]);
-
-  // Get user
-  useEffect(() => {
-    axios
-      .get(env.url + "/index.php")
-      .then(function (response) {
-        const { data } = response;
-        if (data && data.success) {
-          setUser(data.user ? data.user : {});
-        } else {
-        }
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }, []);
-
-  setTimeout(() => {
-    user.map((e) => {
-      console.log(e);
-    });
-  }, 5000);
-
   return (
-    <div className="px-16 py-2">
-      <h1 className="text-center tracking-widest font-normal text-2xl p-4 text-white font-semibold">
-        Join The Team
-      </h1>
-      <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {user.map((u, key) => (
-          <div
-            className="bg-gray-300 m-2 shadow-lg rounded-lg overflow-hidden"
-            key={key}
-          >
-            <div className="sm:flex sm:items-center px-6 py-4">
-              <img
-                className="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0"
-                src="https://avatars3.githubusercontent.com/u/17822715?s=460&u=e70fd41658f6765598cb9c2df2c9f0b66bc489bf&v=4"
-                alt=""
-              />
-              <div className="text-center sm:text-left sm:flex-grow">
-                <div className="mb-4">
-                  <p className="text-xl leading-tight">
-                    {u.name} {u.surname}
-                  </p>
-                  <p className="text-sm leading-tight text-grey-dark">
-                    Developer at Freelance Inc.
-                  </p>
+    <>
+      <h1 className="text-3xl font-bold leading-tight text-white">Dashboard</h1>
+
+      <div className="container">
+        <div className="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
+          <div className="flex flex-wrap">
+            <div className="w-full md:w-1/2 xl:w-1/3 p-3">
+              <div className="bg-gray-900 border border-gray-800 rounded shadow p-2">
+                <div className="flex flex-row items-center">
+                  <div className="flex-shrink pr-4">
+                    <div className="rounded p-3 bg-indigo-600">
+                      <i className="fas fa-tasks fa-2x fa-fw fa-inverse"></i>
+                    </div>
+                  </div>
+                  <div className="flex-1 text-right md:text-center">
+                    <h5 className="font-bold uppercase text-gray-400">
+                      Projects
+                    </h5>
+                    <h3 className="font-bold text-3xl text-gray-600">2</h3>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs">
-                    {u.email} &#8226; {u.number}
-                  </p>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 xl:w-1/3 p-3">
+              <div className="bg-gray-900 border border-gray-800 rounded shadow p-2">
+                <div className="flex flex-row items-center">
+                  <div className="flex-shrink pr-4">
+                    <div className="rounded p-3 bg-orange-600">
+                      <i className="fas fa-users fa-2x fa-fw fa-inverse"></i>
+                    </div>
+                  </div>
+                  <div className="flex-1 text-right md:text-center">
+                    <h5 className="font-bold uppercase text-gray-400">
+                      Total Users
+                    </h5>
+                    <h3 className="font-bold text-3xl text-gray-600">
+                      0
+                      <span className="text-orange-500">
+                        {" "}
+                        <i className="fas fa-exchange-alt"></i>
+                      </span>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 xl:w-1/3 p-3">
+              <div className="bg-gray-900 border border-gray-800 rounded shadow p-2">
+                <div className="flex flex-row items-center">
+                  <div className="flex-shrink pr-4">
+                    <div className="rounded p-3 bg-red-600">
+                      <i className="fas fa-inbox fa-2x fa-fw fa-inverse"></i>
+                    </div>
+                  </div>
+                  <div className="flex-1 text-right md:text-center">
+                    <h5 className="font-bold uppercase text-gray-400">
+                      Tickets
+                    </h5>
+                    <h3 className="font-bold text-3xl text-gray-600">
+                      0{" "}
+                      <span className="text-red-500">
+                        <i className="fas fa-caret-up"></i>
+                      </span>
+                    </h3>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        ))}
+        </div>
       </div>
-    </div>
+
+      {/* CTA */}
+      <div class="bg-gray-50">
+        <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+          <h2 class="text-3xl leading-9 font-extrabold tracking-tight text-white sm:text-4xl sm:leading-10">
+            Ready to dive in?
+            <br />
+            <span class="text-indigo-600">Start your free trial today.</span>
+          </h2>
+          <div class="mt-8 flex lg:flex-shrink-0 lg:mt-0">
+            <div class="inline-flex rounded-md shadow">
+              <a
+                href="#"
+                class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+              >
+                Get started
+              </a>
+            </div>
+            <div class="ml-3 inline-flex rounded-md shadow">
+              <a
+                href="#"
+                class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+              >
+                Learn more
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };

@@ -10,7 +10,7 @@ if ($result = $conn->query($sql)) {
         while ($row = $result->fetch_assoc()) {
             $rows[] = $row;
         }
-        $user = array("success" => true, "user" => $rows);
+        $user = array("success" => true, "count" => mysqli_num_rows($result), "user" => $rows);
         echo (json_encode($user));
     } else {
         $error = array("success" => false, "message" => "User is not in the system", "status" => 403);
